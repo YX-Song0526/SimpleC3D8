@@ -108,7 +108,7 @@ def visualize_outer_faces(coord, coord_new, elements):
 
     for face in outer_faces:
         vertices = [coord_new[i] for i in face]
-        ax.add_collection3d(Poly3DCollection([vertices], edgecolor='k', alpha=1))
+        ax.add_collection3d(Poly3DCollection([vertices], edgecolor='k', alpha=0.6, facecolors='lightcoral'))
 
     # 设置图形属性
     ax.set_xlabel('X')
@@ -213,4 +213,3 @@ def visualize_volume_elements(coord, elements, show_edges=True, color="lightblue
     plotter.set_background("white")
     plotter.view_xy()
     plotter.show()
-

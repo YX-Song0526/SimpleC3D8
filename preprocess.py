@@ -3,14 +3,14 @@ import numpy as np
 # 节点数
 Nx = 4
 Ny = 4
-Nz = 16
+Nz = 39
 
 num_nodes = Nx * Ny * Nz  # 节点总数
 num_elements = (Nx - 1) * (Ny - 1) * (Nz - 1)  # 单元总数
 
 x_start, x_end = 0, 5
 y_start, y_end = 0, 5
-z_start, z_end = 0, 20
+z_start, z_end = 0, 40
 
 x_step, y_step, z_step = (x_end - x_start) / (Nx - 1), (y_end - y_start) / (Ny - 1), (z_end - z_start) / (Nz - 1)
 
