@@ -33,4 +33,4 @@ print(len(U))
 
 stress = calculate_element_stress(coord_new, elements, U.flatten())
 
-visualize_cell_stress(coord_new, elements, stress)
+visualize_cell_stress(coord_new, elements, stress[:, 2])
