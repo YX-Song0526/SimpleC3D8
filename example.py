@@ -1,7 +1,7 @@
 import numpy as np
 from stiffness_matrix import *
 from preprocess import coord, elements, num_dof, num_nodes
-from visualize import visualize_unique_faces, visualize_outer_faces, visualize_volume_elements
+from visualize import visualize_unique_faces, visualize_stress_cloud, visualize_volume_elements, visualize_cell_stress
 
 K = cal_K_total(coord, elements)  # 总刚
 F = np.zeros(num_dof)
@@ -32,8 +32,9 @@ U[48:-48] = U_reduced
 U = U.reshape(num_nodes, 3)
 coord_new = coord + U
 
-print(U)
+stresses = calculate_element_stress(coord, elements, U.flatten())
+print(len(stresses))
 
-# print(np.linalg.matrix_rank(K))
-visualize_volume_elements(coord_new, elements, show_edges=True, color="lightblue", opacity=1)
-# visualize_outer_faces(coord, coord_new, elements)
+
+visualize_cell_stress(coord_new, elements, stresses[:, 5])
+

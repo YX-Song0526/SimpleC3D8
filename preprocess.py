@@ -1,9 +1,9 @@
 import numpy as np
 
 # 节点数
-Nx = 4
-Ny = 4
-Nz = 39
+Nx = 6
+Ny = 6
+Nz = 41
 
 num_nodes = Nx * Ny * Nz  # 节点总数
 num_elements = (Nx - 1) * (Ny - 1) * (Nz - 1)  # 单元总数
