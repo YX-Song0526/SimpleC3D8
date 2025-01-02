@@ -1,8 +1,7 @@
 import numpy as np
 from stiffness_matrix import cal_K_total, cal_M_total, calculate_element_stress
 from preprocess import coord, elements, num_dof, num_nodes, Nx, Ny
-from visualize import visualize_unique_faces, visualize_volume_elements, visualize_cell_stress
-import pandas as pd
+from visualize import visualize_cell_stress
 from scipy.linalg import eigh
 
 b = 3 * Nx * Ny

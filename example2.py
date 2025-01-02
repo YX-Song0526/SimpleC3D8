@@ -35,19 +35,19 @@ for idx, node in zip(top_nodes, top_nodes_coords):
         inner_nodes.append(idx)
 
 # 施加力
-force_per_unit = -1e6  # 每个内圈节点的单位力
+force_per_unit = -1e8  # 每个内圈节点的单位力
 
 # 角点节点力
 for node in corner_nodes:
-    F[3 * node] = force_per_unit / 4  # z 方向力
+    F[3 * node + 2] = force_per_unit / 4  # z 方向力
 
 # 边缘节点力
 for node in edge_nodes:
-    F[3 * node] = force_per_unit / 2  # z 方向力
+    F[3 * node + 2] = force_per_unit / 2  # z 方向力
 
 # 内圈节点力
 for node in inner_nodes:
-    F[3 * node] = force_per_unit  # z 方向力
+    F[3 * node + 2] = force_per_unit  # z 方向力
 
 # 减少自由度矩阵，排除固定节点
 K_reduced = K[b:, b:]
@@ -63,4 +63,4 @@ coord_new = coord + U
 
 stress = calculate_element_stress(coord_new, elements, U.flatten())
 
-visualize_cell_stress(coord_new, elements, stress[:, 1])
+visualize_cell_stress(coord_new, elements, stress[:, 2])
